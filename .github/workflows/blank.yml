@@ -24,8 +24,8 @@ jobs:
 
       - name: Update system packages and install ansible
         run: |
-          sudo apt update
-          sudo apt upgrade -y
+          sudo apt-get update
+          sudo apt-get upgrade -y
           python3 -m pip -V
           python3 -m pip install ansible
           ansible --version
