@@ -1,0 +1,40 @@
+---
+- name: Add the user 'factorio' with a bash shell.
+  ansible.builtin.user:
+    name: factorio
+    shell: /bin/bash
+    append: yes
+
+- name: Download Factorio server files
+  ansible.builtin.get_url:
+    url: https://factorio.com/get-download/stable/headless/linux64
+    dest: "{{ factorio_download_destination }}"
+    mode: '0440'
+
+- name: Extract server files
+  ansible.builtin.unarchive:
+    src: "{{ factorio_download_destination }}"
+    dest: "{{ factorio_installation_directory }}"
+
+- name: Create a new directory for save files
+  ansible.builtin.file:
+    path: "{{ factorio_saves_directory }}"
+    state: directory
+    mode: '0755'
+
+- name: Change server files ownership, group and permissions
+  ansible.builtin.file:
+    path: "{{ factorio_installation_directory }}"
+    owner: factorio
+    group: factorio
+    mode: '0644'
+
+- name: Initalize the server
+  command: "{{ factorio_installation_directory ~ '/bin/x64/factorio --create ' ~ factorio_server_name }}"
+  become: true
+  become_user: factorio
+
+- name: Start Factorio server
+  command: "{{ factorio_installation_directory ~ '/bin/x64/factorio --start-server ' ~ factorio_server_name }}"
+  become: true
+  become_user: factorio

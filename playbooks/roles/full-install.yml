@@ -1,0 +1,12 @@
+- name: Full install
+  hosts: all
+  become: true
+  vars:
+    factorio_server_name: "first_server"
+    factorio_installation_directory: "/opt/factorio"      # Recommended: /opt/factorio
+    factorio_saves_directory: "/opt/factorio/saves"       # Recommended: /opt/factorio/saves
+    factorio_download_destination: /tmp/factorio.tar.xz   # /tmp/factorio.tar.xz
+
+  roles:
+    - base_update
+    - install_factorio

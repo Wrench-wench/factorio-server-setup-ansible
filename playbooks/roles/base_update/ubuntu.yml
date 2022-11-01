@@ -1,0 +1,20 @@
+---
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: true
+
+- name: Upgrade all installed packages
+  ansible.builtin.apt:
+    name: '*'
+    state: latest
+
+- name: Install some nice to have packages
+  ansible.builtin.apt:
+    name:
+      - "{{ item }}"
+    state: present
+    with_items:
+      - htop
+      - tree
+      - nano
+
