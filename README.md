@@ -4,9 +4,9 @@ A quick guide for how to setup and configure a Factorio headless server on a Lin
 I've also included a script file I wrote that was the original template of this project.
 
 In essence, this guide aims to download the server files and install them. This might also cover some networking elements if I feel like it later on.
-Milage may vary depending your platform.
 
 Written for CentOS 7, CentOS 8 Stream, and Ubuntu server 22.04/20.04 LTS.
+Milage may vary depending your platform.
 
 ## Prerequites
 
