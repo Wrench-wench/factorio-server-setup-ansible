@@ -17,15 +17,15 @@ jobs:
   build:
     # This should work fine on Ubuntu 20.04 and 22.04. Lastest is currently on 20.04
     runs-on: ubuntu-latest
-    
+
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      
+
       - name: Update system packages and install ansible
         run: |
-          apt update
-          apt upgrade -y
+          sudo apt update
+          sudo apt upgrade -y
           python3 -m pip -V
           python3 -m pip install ansible
           ansible --version
