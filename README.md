@@ -5,12 +5,12 @@ I've also included a script file I wrote that was the original template of this 
 
 In essence, this guide aims to download the server files and install them. This might also cover some networking elements if I feel like it later on.
 
-Written for CentOS 7, CentOS 8 Stream, and Ubuntu server 22.04/20.04 LTS.
+Written for CentOS 7, CentOS 8 Stream, and Ubuntu Server 22.04/20.04 LTS.
 Milage may vary depending your platform.
 
 ## Prerequites
 
-An installed CentOS or Ubuntu server with SSH access setup, and sudo access for the ansible user.
+An installed CentOS or Ubuntu server with SSH access setup, and sudo access for the Ansible user.
 
 ## Links
 
